@@ -14,7 +14,7 @@ pub fn numbers() -> Vec<char> {
 }
 
 pub fn symbols() -> Vec<char> {
-    ",.?!:'/-".chars().collect()
+    ".?!:'/-".chars().collect()
 }
 
 pub fn lower_class() -> CharClass {

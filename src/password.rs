@@ -2,7 +2,7 @@ use rand::seq::SliceRandom;
 use rand::thread_rng;
 use crate::char_class::CharClass;
 
-pub fn generate_password(classes: &Vec<CharClass>, count: u32) -> String {
+pub fn generate_password(classes: &[CharClass], count: u32) -> String {
     let mut chosen = Vec::new();
 
     let required = classes.iter()
