@@ -2,7 +2,7 @@ extern crate clap;
 
 use crate::char_class::{lower_class, number_class, symbol_class, upper_class};
 use crate::clap::Clap;
-use crate::pronounce::make_default_tree;
+use crate::pronounce::make_default_graph;
 
 mod char_class;
 mod password;
@@ -20,7 +20,7 @@ fn main() {
     let all = vec![lower_class(), upper_class(), number_class(), symbol_class()];
 
     println!("{}\t{}\t{}\t{}\t{}",
-             pronounce::generate_password(make_default_tree(), opts.length),
+             pronounce::generate_password(make_default_graph(), opts.length),
              password::generate_password(&all[0..1], opts.length),
              password::generate_password(&all[0..2], opts.length),
              password::generate_password(&all[0..3], opts.length),

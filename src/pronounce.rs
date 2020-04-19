@@ -2,37 +2,37 @@ use std::collections::HashMap;
 use rand::Rng;
 use rand::thread_rng;
 
-pub fn make_default_tree() -> HashMap<char, Node> {
-    let mut tree = HashMap::new();
+pub fn make_default_graph() -> HashMap<char, Node> {
+    let mut graph = HashMap::new();
 
-    tree.insert('a', Node::new('a', "bcdfghjklmnpqrstvwxz"));
-    tree.insert('b', Node::new('b', "aeiloruwy"));
-    tree.insert('c', Node::new('c', "aehikloru"));
-    tree.insert('d', Node::new('d', "aeioruy"));
-    tree.insert('e', Node::new('e', "bcdfghijklmnopqrstvwxyz"));
-    tree.insert('f', Node::new('f', "aeiloru"));
-    tree.insert('g', Node::new('g', "aeiloruwy"));
-    tree.insert('h', Node::new('h', "aeiou"));
-    tree.insert('i', Node::new('i', "bcdefghjklmnopqrstvwxz"));
-    tree.insert('j', Node::new('j', "aeiou"));
-    tree.insert('k', Node::new('k', "aeilnoruy"));
-    tree.insert('l', Node::new('l', "aeiouy"));
-    tree.insert('m', Node::new('m', "aeiou"));
-    tree.insert('n', Node::new('n', "aeiouy"));
-    tree.insert('o', Node::new('o', "bcdfghijklmnpqrstvwxyz"));
-    tree.insert('p', Node::new('p', "aehilnoru"));
-    tree.insert('q', Node::new('q', "aeiou"));
-    tree.insert('r', Node::new('r', "aeiouy"));
-    tree.insert('s', Node::new('s', "acehiklmnopqrtuwy"));
-    tree.insert('t', Node::new('t', "aehioruwy"));
-    tree.insert('u', Node::new('u', "bcdfgijklmnprstvwxz"));
-    tree.insert('v', Node::new('v', "aeioru"));
-    tree.insert('w', Node::new('w', "aehiouy"));
-    tree.insert('x', Node::new('x', "abcdefghijklmnopqrstuvw"));
-    tree.insert('y', Node::new('y', "abcdefghjklmnoprstuw"));
-    tree.insert('z', Node::new('z', "aeiouy"));
+    graph.insert('a', Node::new('a', "bcdfghjklmnpqrstvwxz"));
+    graph.insert('b', Node::new('b', "aeiloruwy"));
+    graph.insert('c', Node::new('c', "aehikloru"));
+    graph.insert('d', Node::new('d', "aeioruy"));
+    graph.insert('e', Node::new('e', "bcdfghijklmnopqrstvwxyz"));
+    graph.insert('f', Node::new('f', "aeiloru"));
+    graph.insert('g', Node::new('g', "aeiloruwy"));
+    graph.insert('h', Node::new('h', "aeiou"));
+    graph.insert('i', Node::new('i', "bcdefghjklmnopqrstvwxz"));
+    graph.insert('j', Node::new('j', "aeiou"));
+    graph.insert('k', Node::new('k', "aeilnoruy"));
+    graph.insert('l', Node::new('l', "aeiouy"));
+    graph.insert('m', Node::new('m', "aeiou"));
+    graph.insert('n', Node::new('n', "aeiouy"));
+    graph.insert('o', Node::new('o', "bcdfghijklmnpqrstvwxyz"));
+    graph.insert('p', Node::new('p', "aehilnoru"));
+    graph.insert('q', Node::new('q', "aeiou"));
+    graph.insert('r', Node::new('r', "aeiouy"));
+    graph.insert('s', Node::new('s', "acehiklmnopqrtuwy"));
+    graph.insert('t', Node::new('t', "aehioruwy"));
+    graph.insert('u', Node::new('u', "bcdfgijklmnprstvwxz"));
+    graph.insert('v', Node::new('v', "aeioru"));
+    graph.insert('w', Node::new('w', "aehiouy"));
+    graph.insert('x', Node::new('x', "abcdefghijklmnopqrstuvw"));
+    graph.insert('y', Node::new('y', "abcdefghjklmnoprstuw"));
+    graph.insert('z', Node::new('z', "aeiouy"));
 
-    tree
+    graph
 }
 
 pub struct Node {
@@ -56,19 +56,19 @@ impl Node {
     }
 }
 
-pub fn generate_password(map: HashMap<char, Node>, count: u32) -> String {
+pub fn generate_password(graph: HashMap<char, Node>, count: u32) -> String {
     let mut chosen = String::new();
 
     // figure out our starting point
-    let keys: Vec<&char> = map.keys().collect();
+    let keys: Vec<&char> = graph.keys().collect();
     let index = thread_rng().gen_range(0, keys.len());
-    let mut node = &map[&keys[index]];
+    let mut node = &graph[&keys[index]];
 
     while chosen.len() < count as usize {
         let next = node.pick();
 
-        if map.contains_key(&next) {
-            node = &map[&next];
+        if graph.contains_key(&next) {
+            node = &graph[&next];
             chosen.push(next)
         }
     }
