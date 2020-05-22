@@ -11,11 +11,11 @@ The first is (mostly, sometimes) pronounceable, the second is all lower case, th
 FAQ
 ===
 
-*Why isn't this just 20 lines of Python?*
+**Why isn't this just 20 lines of Python?**  
 I'm really trying to get familiar with Rust, so I'm forcing myself to use it.
 
-*Why can't I configure the passwords I see and how they are built?*
+**Why can't I configure the passwords I see and how they are built?**  
 Yeah, that's a good idea. That's probably the next step.
 
-*Can you really have FAQs if no one has ever asked anything?*
+**Can you really have FAQs if no one has ever asked anything?**  
 Apparently.
