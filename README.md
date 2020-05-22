@@ -6,7 +6,7 @@ This is a very opinionated password generator. It takes only one option (length)
 	phil@fry ~> pgen
 	dyrumiwusy	zbamsyztet	qMBkkmjRPb	dMazV2mKWm	h1c3AceR9.
 
-The first is (mostly, sometimes) pronounceable, the second is all lower case, the third is upper and lower case, the fourth includes digits, and the last adds a sigle special character. The idea is to pick the right password based on the specific security/convenience tradeoffs where it's being used, or the silly and misguided requirements of the application.
+The first is (mostly, sometimes) pronounceable, the second is all lower case, the third is upper and lower case, the fourth includes digits, and the last adds a sigle special character. The idea is to pick the right password based on the specific security/convenience tradeoffs of where it's being used, or the silly and misguided requirements of the application.
 
 FAQ
 ===
