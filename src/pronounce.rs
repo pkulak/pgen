@@ -75,3 +75,14 @@ pub fn generate_password(graph: HashMap<char, Node>, count: u32) -> String {
 
     chosen
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn passwords_are_generated() {
+        let password = generate_password(make_default_graph(), 8);
+        assert_eq!(password.len(), 8);
+    }
+}

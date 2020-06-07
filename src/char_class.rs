@@ -67,3 +67,16 @@ impl CharClass {
         self.chars[index]
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn char_classes_work() {
+        let c = CharClass { chars: "a".chars().collect(), count: 3 };
+        assert!(c.pick_one() == 'a');
+        assert!(c.pick().iter().collect::<String>() == "aaa");
+    }
+}

@@ -38,3 +38,43 @@ pub fn generate_password(classes: &[CharClass], count: u32) -> String {
     chosen.shuffle(&mut thread_rng());
     chosen.iter().collect()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::char_class::{CharClass, lower_class, number_class, symbol_class, upper_class};
+
+    #[test]
+    fn passwords_are_generated() {
+        let all = vec![lower_class(), upper_class(), number_class(), symbol_class()];
+
+        for (i, class) in all.iter().enumerate() {
+            let password = generate_password(&all[0..(i + 1)], 8);
+            assert_eq!(password.len(), 8);
+            assert!(string_contains_class(&password, &class));
+        }
+    }
+
+    fn string_contains_class(s: &String, class: &CharClass) -> bool {
+        let mut count = 0;
+
+        for c in class.chars.iter() {
+            if s.contains(|l| *c == l) {
+                count += 1;
+            }
+        }
+
+        // it has to be present at least once
+        if count == 0 {
+            return false;
+        }
+
+        // if the class doesn't require a specific amount, we're done
+        if class.count == 0 {
+            return true;
+        }
+
+        // otherwise, we need to be more strict
+        class.count == count
+    }
+}
