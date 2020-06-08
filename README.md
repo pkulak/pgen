@@ -8,6 +8,13 @@ This is a very opinionated password generator. It can generate five types of pas
 
 The first is (mostly, sometimes) pronounceable, the second is all lower case, the third is upper and lower case, the fourth includes digits, and the last adds a sigle special character. The idea is to pick the right password based on the specific security/convenience tradeoffs of where it's being used, or the silly and misguided requirements of the application.
 
+Installation
+============
+
+PGen is available for Arch in the AUR as [pgen](https://aur.archlinux.org/packages/pgen/). Or you can build it yourself with
+
+	cargo build --release
+
 Options
 =======
 
